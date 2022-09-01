@@ -10,6 +10,14 @@ h1{
     padding-bottom: 10px;
 }
 
+p{
+    padding-bottom: 10px;
+}
+
+.p-edit{
+    padding-top: 10px;
+}
+
 a{
     color: #fff;
     text-decoration: none;
@@ -31,10 +39,10 @@ div {
 }
 
 ul{
-   display: flex;
-   list-style: none;
-   
-}
+    display: flex;
+    list-style: none;
+ }
+
 li{
     letter-spacing: 2px;
     align-items: center;
@@ -43,10 +51,19 @@ li{
 
 footer{
     color: #fff;
-    margin-top: 50%;
+    margin-top: 56%;
     height: 6vh;
     background-color: #464658;
     padding-left: 20px;
     font-size: 10px;
     align-items: center;
+}
+
+.div-dados{
+    padding-bottom: 5px;
+}
+
+.btn-success{
+    margin: 5px;
+    padding: 10px;
 }
