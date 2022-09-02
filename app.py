@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import calc as CALC
 
 app = Flask('app')
 
@@ -21,7 +22,27 @@ def add_create():
     p_pac = result['p-paciente']
     a_pac = result['a-paciente']
 
-  return render_template('cadastrar.html')
+    CALC.create_data(name,age, gen, cpf, p_pac, a_pac)
+    msg = 'Registrado!'
+  
+  return render_template('home.html', msg=msg)
+
+
 
 #app.run(host='0.0.0.0', port=8080, debug=True)
 app.run(host='0.0.0.0', port='5000', debug=True)
+
+
+
+
+
+'''@app.route('/banco')
+def banco():
+  CALC.create_db()
+  msg = 'Banco Criado!'
+  return render_template('home.html', msg=msg)
+
+CRUD
+
+'''
+
