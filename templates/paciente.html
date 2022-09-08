@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+  <h1>Área do Pacientes</h1>
+  <p>Lista de Pacientes</p>
+</div>
+
+<div>
+<table>
+  <thead>
+    <tr>
+      <th>ITEM</th>
+      <th>NOME</th>
+      <th>NASCIMENTO</th>
+      <th>GÊNERO</th>
+      <th>CPF</th>
+      <th>PESO</th>
+      <th>ALTURA</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in lista_paciente %}
+    <tr>
+      <td>{{item.0}}</td>
+      <td>{{item.1}}</td>
+      <td>{{item.2}}</td>
+      <td>{{item.3}}</td>
+      <td>{{item.4}}</td>
+      <td>{{item.5}}</td>
+      <td>{{item.6}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock content %}

@@ -5,6 +5,7 @@ app = Flask('app')
 
 @app.route('/')
 def home():
+  #CALC.read_all()
   return render_template('home.html')
 
 @app.route('/add_')
@@ -27,22 +28,22 @@ def add_create():
   
   return render_template('home.html', msg=msg)
 
+@app.route('/read_all')
+def read_all():
+
+  read_db = CALC.read_all()
+
+  lista_paciente = []
+  for cont in range(0, len(read_db['ID'])):
+    print(read_db['ID'].loc[cont], read_db['NAME'].loc[cont], read_db['AGE'].loc[cont], read_db['GEN'].loc[cont],read_db['CPF'].loc[cont],read_db['P_PAC'].loc[cont],read_db['A_PAC'].loc[cont], read_db['DATE_LOG'].loc[cont])
+    lista_paciente.append([read_db['ID'].loc[cont], read_db['NAME'].loc[cont], read_db['AGE'].loc[cont], read_db['GEN'].loc[cont],read_db['CPF'].loc[cont],read_db['P_PAC'].loc[cont],read_db['A_PAC'].loc[cont], read_db['DATE_LOG'].loc[cont]])
+  
+  return render_template('paciente.html', lista_paciente=lista_paciente)
 
 
-#app.run(host='0.0.0.0', port=8080, debug=True)
 app.run(host='0.0.0.0', port='5000', debug=True)
 
 
 
 
-
-'''@app.route('/banco')
-def banco():
-  CALC.create_db()
-  msg = 'Banco Criado!'
-  return render_template('home.html', msg=msg)
-
-CRUD
-
-'''
 

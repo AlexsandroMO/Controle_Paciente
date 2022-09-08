@@ -1,5 +1,8 @@
 import sqlite3
 from datetime import datetime
+import pandas as pd
+import pandasql as pdsql
+
 
 def create_db():
   conn = sqlite3.connect('DB_PROJECT.db')
@@ -39,4 +42,18 @@ def create_data(name,age, gen, cpf, p_pac, a_pac):
     
     conn.commit()
     conn.close()
+
+
+def read_all():
+  conn = sqlite3.connect('DB_PROJECT.db')
+  c = conn.cursor()
+
+  sql_datas = f'''
+                    SELECT * FROM Paciente;
+  '''
+
+  read = pd.read_sql_query(sql_datas, conn)
+  conn.close()
+
+  return read
 

@@ -67,3 +67,13 @@ footer{
     margin: 5px;
     padding: 10px;
 }
+
+table, th, td{
+    border: 1px solid;
+    border-collapse: collapse;
+    align-items: center;
+}
+
+table{
+    text-align: center;
+}
