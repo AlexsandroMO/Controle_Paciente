@@ -57,3 +57,46 @@ def read_all():
 
   return read
 
+
+def read_id(page_id):
+
+  conn = sqlite3.connect('DB_PROJECT.db')
+  c = conn.cursor()
+
+  sql_datas = f"""
+                  SELECT * FROM Paciente WHERE ID={page_id};
+              """
+
+  read_db = pd.read_sql_query(sql_datas, conn)
+  conn.close()
+
+  return read_db
+
+
+def ed_data(id_name,name,age,gen,cpf,p_pac,a_pac):
+  print('>>>>>: ',id,name,age, gen, cpf, p_pac, a_pac)
+  current_date = datetime.now()
+  conn = sqlite3.connect('DB_PROJECT.db')
+  c = conn.cursor()
+
+  qsl_datas = f"""
+                  UPDATE Paciente set NAME='{name}', AGE='{age}', GEN='{gen}', CPF={cpf}, P_PAC={p_pac}, A_PAC={a_pac}, DATE_LOG='{current_date}' Where ID={id_name};
+              """
+
+  c.execute(qsl_datas)
+
+  conn.commit()
+  conn.close()
+
+
+def del_data(id_name):
+  conn = sqlite3.connect('DB_PROJECT.db')
+  c = conn.cursor()
+
+  qsl_datas = f"""
+                  DELETE from Paciente Where ID={id_name};
+              """
+  c.execute(qsl_datas)
+
+  conn.commit()
+  conn.close()
